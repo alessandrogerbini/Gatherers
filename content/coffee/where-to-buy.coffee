@@ -48,7 +48,7 @@ deltaToStoreLink = (delta) ->
         delta.delta = delta.delta.toFixed(1)
     else
         delta.delta = delta.delta.toFixed(0)
-    map_link = " (#{ delta.delta } mi, <a href='http://maps.google.com/?q=#{ query }'>map</a>)"
+    map_link = " (<a href='http://maps.google.com/?q=#{ query }'>#{ delta.delta } mi</a>)"
     return "#{ name }#{ map_link }"
 
 renderStore = (deltas) ->
