@@ -7,7 +7,7 @@
 
     <title>{% block title %}{% endblock %}Gatherer's Granola - Quality gourmet granola from upstate New York</title>
 
-    <link rel="icon" href="/favicon.png" type="image/png"/>
+    <link rel="icon" href="favicon.png" type="image/png"/>
 
     {% comment %}
     <script type="application/javascript" async=true src="http://www.google-analytics.com/ga.js"></script>
@@ -90,6 +90,10 @@
     </div>
 
     <div class="media-boxes">
+        <div id="store">
+            <p>Available at <a href="http://maps.google.com/">Pioneer Food Market</a>, and <span>other fine establishments</span>.</p>
+            <ul></ul>
+        </div>
         <p>
             Stay up-to-date with our farmers market appearances:
         </p>
@@ -112,11 +116,15 @@
         if(!window.jQuery) {
             var s = document.createElement('script');
             s.type = 'text/javascript';
-            s.src = 'lib/jquery-1.6.1-min.js';
+            s.src = 'js/jquery-1.6.1-min.js';
             document.getElementsByTagName('head')[0].appendChild(s);
         }
         {% include "media_includes/tweeter.js" %}
         {% include "media_includes/where-to-buy.js" %}
+        document.onready = function () {
+            tweetInit();
+            storeInit();
+        }
     </script>
 
 </body>

@@ -3,7 +3,7 @@ html { margin: 0; padding: 0; height: 100%; width: 100%; }
 @media (min-device-width: 961px) { /* line 11, ../sass/screen.sass */
   html { background: url("images/granola-bg.jpg") top center no-repeat; -moz-background-size: cover; -webkit-background-size: cover; -o-background-size: cover; background-size: cover; } }
 @media (max-device-width: 960px) { /* line 11, ../sass/screen.sass */
-  html { background: url("images/granola-bg_small.jpg") top center no-repeat; -moz-background-size: auto 1024px; -webkit-background-size: auto 1024px; -o-background-size: auto 1024px; background-size: auto 1024px; } }
+  html { background: url("images/granola-bg_small.jpg") top center no-repeat; -moz-background-size: auto 1280px; -webkit-background-size: auto 1280px; -o-background-size: auto 1280px; background-size: auto 1280px; } }
 
 /* line 29, ../sass/screen.sass */
 body { position: relative; margin: 0 auto; padding: 0 10px; font-family: ClarendonFSLight, Georgia, serif; font-weight: 300; }
@@ -51,14 +51,18 @@ h1.logo, .banner { user-select: none; -moz-user-select: none; -webkit-user-selec
 /* line 105, ../sass/screen.sass */
 .media-boxes { text-shadow: #aaaaaa 0px 0px 1px; width: 499px; }
 /* line 108, ../sass/screen.sass */
-.media-boxes p, .media-boxes a { font-size: 18px; color: white; }
+.media-boxes p, .media-boxes a, .media-boxes ul { font-size: 18px; color: white; }
 /* line 111, ../sass/screen.sass */
-.media-boxes a { min-height: 32px; display: block; padding-left: 42px; text-decoration: none; margin-bottom: 20px; }
-/* line 117, ../sass/screen.sass */
-.media-boxes #facebook { background: url("images/icons/facebook.png") top left no-repeat; }
-/* line 119, ../sass/screen.sass */
-.media-boxes #facebook:hover { background-image: url("images/icons/facebook_hover.png"); }
+.media-boxes > a { min-height: 32px; display: block; padding-left: 42px; text-decoration: none; margin-bottom: 20px; }
+/* line 118, ../sass/screen.sass */
+.media-boxes #store span { text-decoration: underline; cursor: pointer; }
 /* line 121, ../sass/screen.sass */
+.media-boxes #store ul { display: none; margin: 0; padding: 0 0 0 2em; }
+/* line 125, ../sass/screen.sass */
+.media-boxes #facebook { background: url("images/icons/facebook.png") top left no-repeat; }
+/* line 127, ../sass/screen.sass */
+.media-boxes #facebook:hover { background-image: url("images/icons/facebook_hover.png"); }
+/* line 129, ../sass/screen.sass */
 .media-boxes #twitter { background: url("images/icons/twitter.png") top left no-repeat; }
-/* line 123, ../sass/screen.sass */
+/* line 131, ../sass/screen.sass */
 .media-boxes #twitter:hover { background-image: url("images/icons/twitter_hover.png"); }

@@ -30,4 +30,4 @@ renderTweet = (tweet) ->
     text = text.replace(settings.hashtag, '')
     $('#twitter').html("#{ text }")
 
-document.onready = loadTweets
+window.tweetInit = -> loadTweets()

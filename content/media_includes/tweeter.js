@@ -35,5 +35,7 @@
     text = text.replace(settings.hashtag, '');
     return $('#twitter').html("" + text);
   };
-  document.onready = loadTweets;
+  window.tweetInit = function() {
+    return loadTweets();
+  };
 }).call(this);
