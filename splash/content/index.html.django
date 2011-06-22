@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{% block title %}{% endblock %}Gatherer's Granola - Quality gourmet granola from upstate New York</title>
+    <meta name="viewport" content="width=device-width" />
+    <style type="text/css">
+        /*
+         * Web Fonts from fontspring.com
+         *
+         * All OpenType features and all extended glyphs have been removed.
+         * Fully installable fonts can be purchased at http://www.fontspring.com
+         *
+         * The fonts included in this stylesheet are subject to the End User License you purchased
+         * from Fontspring. The fonts are protected under domestic and international trademark and 
+         * copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
+         * distributing this font software.
+         *
+         * (c) 2010-2011 Fontspring
+         *
+         *
+         *
+         *
+         * The fonts included are copyrighted by the vendor listed below.
+         *
+         * Vendor:      FontSite Inc.
+         * License URL: http://www.fontspring.com/fflicense/fontsite
+         *
+         *
+         */
+        @font-face {
+            font-family: 'ClarendonFSBold';
+            src: url('fonts/Clarendon-Bold/Clarendon-Bold-webfont.eot');
+            src: url('fonts/Clarendon-Bold/Clarendon-Bold-webfont.eot?iefix') format('eot'),
+                 url('fonts/Clarendon-Bold/Clarendon-Bold-webfont.woff') format('woff'),
+                 url('fonts/Clarendon-Bold/Clarendon-Bold-webfont.ttf') format('truetype'),
+                 url('fonts/Clarendon-Bold/Clarendon-Bold-webfont.svg#webfont') format('svg');
+            font-weight: normal;
+            font-style: normal;
+
+        }
+        @font-face {
+            font-family: 'ClarendonFSLight';
+            src: url('fonts/Clarendon-Light/Clarendon-Light-webfont.eot');
+            src: url('fonts/Clarendon-Light/Clarendon-Light-webfont.eot?iefix') format('eot'),
+                 url('fonts/Clarendon-Light/Clarendon-Light-webfont.woff') format('woff'),
+                 url('fonts/Clarendon-Light/Clarendon-Light-webfont.ttf') format('truetype'),
+                 url('fonts/Clarendon-Light/Clarendon-Light-webfont.svg#webfontI7XVJ1Zh') format('svg');
+            font-weight: normal;
+            font-style: normal;
+
+        }
+    </style>
+
+    <style type="text/css">
+        {% include "media_includes/screen.css" %}
+    </style>
+
+    <script type="text/javascript">
+        {% include "media_includes/tweeter.js" %}
+    </script>
+
+</head>
+<body>
+
+    <h1 class="logo">Gatherer's Gourmet Granola</h1>
+
+    <div class="banner" id="chipmunks-choice">
+        <h2>Chipmunk's Choice</h2>
+        <ul>
+            <li>Almonds</li>
+            <li>Peanut Butter</li>
+            <li>Maple Syrup</li>
+        </ul>
+    </div>
+
+    <div class="banner" id="squirrel-bait">
+        <h2>Squirrel Bait</h2>
+        <ul>
+            <li>Pecans</li>
+            <li>Maple Syrup</li>
+            <li>Toasted Coconut</li>
+        </ul>
+    </div>
+
+    <div class="media-boxes">
+        <p>
+            Stay up-to-date with our farmers market appearances by
+        </p>
+        <a id="twitter" href="https://twitter.com/gathergranola">
+            &hellip;following us on Twitter&hellip;
+        </a>
+        <a id="facebook" href="https://www.facebook.com/chipmunkschoice">
+            &hellip;or connecting with us on Facebook.
+        </a>
+    </div>
+
+    <div class="footer">
+        Handmade in Albany, New York.<br>
+        &#8482; &amp; &copy; SANZ BRANZ, LLC.
+    </div>
+
+</body>
+</html>

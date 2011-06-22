@@ -1,0 +1,116 @@
+@import "compass"
+
+$orange: #E57925
+$purple: #AB3A8D
+
+$logo_width: 499px
+
+$main_body_width: 960px
+$mobile_body_width: $logo_width
+
+html
+    margin: 0
+    padding: 0
+    height: 100%
+    width: 100%
+    @media (min-device-width: 961px)
+        @include background-size(cover)
+        background: url("images/granola-bg.jpg") top center no-repeat
+    @media (max-device-width: 960px)
+        background: url("images/granola-bg_small.jpg") top center no-repeat
+        @include background-size(auto 1024px)
+//    @media only screen and (orientation: portrait) and (max-device-width: 960px)
+//        @include background-size(auto 100%)
+        
+    //@media only screen and (orientation: landscape) and (max-device-width: 959px)
+    //    @include background-size(100% auto)
+
+
+$width: 960px
+$width_lt: 959px
+
+
+body
+    @media (min-width: 961px)
+        max-width: $main_body_width
+        min-height: 538px
+    @media (max-width: 960px), (max-device-width: 960px)
+        width: $mobile_body_width
+    position: relative
+    margin: 0 auto
+    padding: 0 10px
+    font-family: ClarendonFSLight, Georgia, serif
+    font-weight: 300
+    @media (min-width: 961px)
+        height: 100%
+
+h1.logo
+    color: transparent
+    background: url("images/gatherersgranola-logo.png") top center no-repeat
+    margin: 20px 0 20px
+    display: inline-block
+    padding: 0
+    width: $logo_width
+    height: 168px
+
+.footer
+    text-align: center
+    color: rgba(255,255,255,0.8)
+    font-weight: 300
+    @media (min-width: 961px)
+        position: absolute
+        bottom: 10px
+        left: 0
+    width: 100%
+    font-family: Helvetica, Arial, sans-serif
+    font-size: 0.8em
+
+.banner
+    width: 226px
+    height: 505px
+    display: inline-block
+    @media (min-width: 961px)
+        position: absolute
+    @media (max-width: 960px)
+        margin: 20px 0
+    vertical-align: top
+    top: 0
+    color: transparent
+    h2
+        padding: 0
+        margin: 0
+
+#chipmunks-choice
+    background: url("images/cc-banner.png") no-repeat
+    @media (min-width: 961px)
+        left: 510px
+    @media (max-width: 960px)
+        margin-left: 14px
+
+#squirrel-bait
+    background: url("images/sb-banner.png") no-repeat
+    @media (min-device-width: 961px)
+        left: 710px
+
+
+
+.media-boxes
+    +single-text-shadow
+    width: $logo_width
+    p, a
+        font-size: 18px
+        color: white
+    a
+        min-height: 32px
+        display: block
+        padding-left: 42px
+        text-decoration: none
+        margin-bottom: 20px
+    #facebook
+        background: url("images/icons/facebook.png") top left no-repeat
+        &:hover
+            background-image: url("images/icons/facebook_hover.png")
+    #twitter
+        background: url("images/icons/twitter.png") top left no-repeat
+        &:hover
+            background-image: url("images/icons/twitter_hover.png")
