@@ -1,1 +1,64 @@
-html{margin:0;padding:0;height:100%;width:100%}@media (min-device-width: 961px){html{-moz-background-size:cover;-webkit-background-size:cover;-o-background-size:cover;background-size:cover;background:url("images/granola-bg.jpg") top center no-repeat}}@media (max-device-width: 960px){html{background:url("images/granola-bg_small.jpg") top center no-repeat;-moz-background-size:auto 1024px;-webkit-background-size:auto 1024px;-o-background-size:auto 1024px;background-size:auto 1024px}}body{position:relative;margin:0 auto;padding:0 10px;font-family:ClarendonFSLight,Georgia,serif;font-weight:300}@media (min-width: 961px){body{max-width:960px;min-height:538px}}@media (max-width: 960px), (max-device-width: 960px){body{width:499px}}@media (min-width: 961px){body{height:100%}}h1.logo{color:transparent;background:url("images/gatherersgranola-logo.png") top center no-repeat;margin:20px 0 20px;display:inline-block;padding:0;width:499px;height:168px}.footer{text-align:center;color:rgba(255,255,255,0.8);font-weight:300;width:100%;font-family:Helvetica,Arial,sans-serif;font-size:0.8em}@media (min-width: 961px){.footer{position:absolute;bottom:10px;left:0}}.banner{width:226px;height:505px;display:inline-block;vertical-align:top;top:0;color:transparent}@media (min-width: 961px){.banner{position:absolute}}@media (max-width: 960px){.banner{margin:20px 0}}.banner h2{padding:0;margin:0}#chipmunks-choice{background:url("images/cc-banner.png") no-repeat}@media (min-width: 961px){#chipmunks-choice{left:510px}}@media (max-width: 960px){#chipmunks-choice{margin-left:14px}}#squirrel-bait{background:url("images/sb-banner.png") no-repeat}@media (min-device-width: 961px){#squirrel-bait{left:710px}}.media-boxes{text-shadow:#aaaaaa 0px 0px 1px;width:499px}.media-boxes p,.media-boxes a{font-size:18px;color:#fff}.media-boxes a{min-height:32px;display:block;padding-left:42px;text-decoration:none;margin-bottom:20px}.media-boxes #facebook{background:url("images/icons/facebook.png") top left no-repeat}.media-boxes #facebook:hover{background-image:url("images/icons/facebook_hover.png")}.media-boxes #twitter{background:url("images/icons/twitter.png") top left no-repeat}.media-boxes #twitter:hover{background-image:url("images/icons/twitter_hover.png")}
+/* line 11, ../sass/screen.sass */
+html { margin: 0; padding: 0; height: 100%; width: 100%; }
+@media (min-device-width: 961px) { /* line 11, ../sass/screen.sass */
+  html { background: url("images/granola-bg.jpg") top center no-repeat; -moz-background-size: cover; -webkit-background-size: cover; -o-background-size: cover; background-size: cover; } }
+@media (max-device-width: 960px) { /* line 11, ../sass/screen.sass */
+  html { background: url("images/granola-bg_small.jpg") top center no-repeat; -moz-background-size: auto 1024px; -webkit-background-size: auto 1024px; -o-background-size: auto 1024px; background-size: auto 1024px; } }
+
+/* line 29, ../sass/screen.sass */
+body { position: relative; margin: 0 auto; padding: 0 10px; font-family: ClarendonFSLight, Georgia, serif; font-weight: 300; }
+@media (min-width: 961px) { /* line 29, ../sass/screen.sass */
+  body { max-width: 960px; min-height: 538px; height: 100%; } }
+@media (max-width: 960px), (max-device-width: 960px) { /* line 29, ../sass/screen.sass */
+  body { width: 499px; } }
+
+/* line 43, ../sass/screen.sass */
+h1.logo { color: transparent; background: url("images/gatherersgranola-logo.png") top center no-repeat; margin: 20px 0 20px; display: inline-block; padding: 0; width: 499px; height: 168px; }
+
+/* line 52, ../sass/screen.sass */
+.footer { text-align: center; color: rgba(255, 255, 255, 0.5); font-weight: 300; width: 100%; font-size: 0.8em; }
+@media (min-width: 961px) { /* line 52, ../sass/screen.sass */
+  .footer { position: absolute; bottom: 10px; left: 0; } }
+/* line 62, ../sass/screen.sass */
+.footer a { color: inherit; text-decoration: none; }
+/* line 65, ../sass/screen.sass */
+.footer a:hover { text-decoration: underline; }
+
+/* line 68, ../sass/screen.sass */
+.banner { width: 226px; height: 505px; display: inline-block; vertical-align: top; top: 0; color: transparent; }
+@media (min-width: 961px) { /* line 68, ../sass/screen.sass */
+  .banner { position: absolute; } }
+@media (max-width: 960px) { /* line 68, ../sass/screen.sass */
+  .banner { margin: 20px 0; } }
+/* line 79, ../sass/screen.sass */
+.banner h2 { padding: 0; margin: 0; }
+
+/* line 84, ../sass/screen.sass */
+h1.logo, .banner { user-select: none; -moz-user-select: none; -webkit-user-select: none; -khtml-user-select: none; }
+
+/* line 91, ../sass/screen.sass */
+#chipmunks-choice { background: url("images/cc-banner.png") no-repeat; }
+@media (min-width: 961px) { /* line 91, ../sass/screen.sass */
+  #chipmunks-choice { left: 510px; } }
+@media (max-width: 960px) { /* line 91, ../sass/screen.sass */
+  #chipmunks-choice { margin-left: 14px; } }
+
+/* line 98, ../sass/screen.sass */
+#squirrel-bait { background: url("images/sb-banner.png") no-repeat; }
+@media (min-device-width: 961px) { /* line 98, ../sass/screen.sass */
+  #squirrel-bait { left: 710px; } }
+
+/* line 105, ../sass/screen.sass */
+.media-boxes { text-shadow: #aaaaaa 0px 0px 1px; width: 499px; }
+/* line 108, ../sass/screen.sass */
+.media-boxes p, .media-boxes a { font-size: 18px; color: white; }
+/* line 111, ../sass/screen.sass */
+.media-boxes a { min-height: 32px; display: block; padding-left: 42px; text-decoration: none; margin-bottom: 20px; }
+/* line 117, ../sass/screen.sass */
+.media-boxes #facebook { background: url("images/icons/facebook.png") top left no-repeat; }
+/* line 119, ../sass/screen.sass */
+.media-boxes #facebook:hover { background-image: url("images/icons/facebook_hover.png"); }
+/* line 121, ../sass/screen.sass */
+.media-boxes #twitter { background: url("images/icons/twitter.png") top left no-repeat; }
+/* line 123, ../sass/screen.sass */
+.media-boxes #twitter:hover { background-image: url("images/icons/twitter_hover.png"); }

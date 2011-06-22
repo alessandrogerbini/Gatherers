@@ -1,9 +1,19 @@
+{% spaceless %}
 <!doctype html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>{% block title %}{% endblock %}Gatherer's Granola - Quality gourmet granola from upstate New York</title>
     <meta name="viewport" content="width=device-width" />
+
+    <title>{% block title %}{% endblock %}Gatherer's Granola - Quality gourmet granola from upstate New York</title>
+
+    <link rel="icon" href="/favicon.png" type="image/png"/>
+
+    {% comment %}
+    <script type="application/javascript" async=true src="http://www.google-analytics.com/ga.js"></script>
+    <script type="text/javascript">var _gaq = _gaq || []; _gaq.push(['_setAccount', 'XXXXXXXXXXX']); _gaq.push(['_addOrganic','google','prev']); _gaq.push(['_trackPageview']);</script>
+    {% endcomment %}
+
     <style type="text/css">
         /*
          * Web Fonts from fontspring.com
@@ -56,10 +66,6 @@
         {% include "media_includes/screen.css" %}
     </style>
 
-    <script type="text/javascript">
-        {% include "media_includes/tweeter.js" %}
-    </script>
-
 </head>
 <body>
 
@@ -85,20 +91,33 @@
 
     <div class="media-boxes">
         <p>
-            Stay up-to-date with our farmers market appearances by
+            Stay up-to-date with our farmers market appearances:
         </p>
         <a id="twitter" href="https://twitter.com/gathergranola">
-            &hellip;following us on Twitter&hellip;
+            Follow us on Twitter &raquo;
         </a>
         <a id="facebook" href="https://www.facebook.com/chipmunkschoice">
-            &hellip;or connecting with us on Facebook.
+            Connect with us on Facebook &raquo;
         </a>
     </div>
 
     <div class="footer">
-        Handmade in Albany, New York.<br>
-        &#8482; &amp; &copy; SANZ BRANZ, LLC.
+        Hand-crafted in Albany, New York.<br>
+        &#8482; &amp; &copy; SANZ BRANZ, LLC. &#8212;
+        Site by <a href="http://typeish.net" title="type(ish): Design with type &amp; such">type(ish), inc.</a>
     </div>
+
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        if(!window.jQuery) {
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.src = 'lib/jquery-1.6.1-min.js';
+            document.getElementsByTagName('head')[0].appendChild(s);
+        }
+        {% include "media_includes/tweeter.js" %}
+    </script>
 
 </body>
 </html>
+{% endspaceless %}

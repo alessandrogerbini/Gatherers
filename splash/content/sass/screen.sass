@@ -14,16 +14,12 @@ html
     height: 100%
     width: 100%
     @media (min-device-width: 961px)
-        @include background-size(cover)
         background: url("images/granola-bg.jpg") top center no-repeat
+        @include background-size(cover)
     @media (max-device-width: 960px)
         background: url("images/granola-bg_small.jpg") top center no-repeat
         @include background-size(auto 1024px)
-//    @media only screen and (orientation: portrait) and (max-device-width: 960px)
-//        @include background-size(auto 100%)
-        
-    //@media only screen and (orientation: landscape) and (max-device-width: 959px)
-    //    @include background-size(100% auto)
+
 
 
 $width: 960px
@@ -34,6 +30,7 @@ body
     @media (min-width: 961px)
         max-width: $main_body_width
         min-height: 538px
+        height: 100%
     @media (max-width: 960px), (max-device-width: 960px)
         width: $mobile_body_width
     position: relative
@@ -41,8 +38,7 @@ body
     padding: 0 10px
     font-family: ClarendonFSLight, Georgia, serif
     font-weight: 300
-    @media (min-width: 961px)
-        height: 100%
+
 
 h1.logo
     color: transparent
@@ -55,15 +51,19 @@ h1.logo
 
 .footer
     text-align: center
-    color: rgba(255,255,255,0.8)
+    color: rgba(255,255,255,0.5)
     font-weight: 300
+    width: 100%
+    font-size: 0.8em
     @media (min-width: 961px)
         position: absolute
         bottom: 10px
         left: 0
-    width: 100%
-    font-family: Helvetica, Arial, sans-serif
-    font-size: 0.8em
+    a
+        color: inherit
+        text-decoration: none
+        &:hover
+            text-decoration: underline
 
 .banner
     width: 226px
@@ -79,6 +79,14 @@ h1.logo
     h2
         padding: 0
         margin: 0
+
+
+h1.logo, .banner
+    user-select: none
+    -moz-user-select: none
+    -webkit-user-select: none
+    -khtml-user-select: none
+
 
 #chipmunks-choice
     background: url("images/cc-banner.png") no-repeat
