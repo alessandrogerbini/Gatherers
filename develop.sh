@@ -3,7 +3,7 @@
 # Launches development environment stuff
   
   osascript <<-eof
-    set app_directory to "~/typeish_clients/granola/splash"
+    set app_directory to "~/typeish_clients/granola/"
     
 	tell application "iTerm"
 
