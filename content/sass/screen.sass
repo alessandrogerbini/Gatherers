@@ -13,12 +13,6 @@ html
     padding: 0
     height: 100%
     width: 100%
-    @media (min-device-width: 961px)
-        background: url("images/granola-bg.jpg") top center no-repeat
-        @include background-size(cover)
-    @media (max-device-width: 960px)
-        background: url("images/granola-bg_small.jpg") top center no-repeat
-        @include background-size(auto 1280px)
 
 
 
@@ -27,17 +21,25 @@ $width_lt: 959px
 
 
 body
+    @media (min-device-width: 961px)
+        background: url("images/granola-bg.jpg") top center no-repeat
+        @include background-size(cover)
+        height: 100%
+    @media (max-width: 960px), (max-device-width: 960px)
+        background: url("images/granola-bg_small.jpg") top center no-repeat
+        @include background-size(auto 1280px)
     @media (min-width: 961px)
         max-width: $main_body_width
         min-height: 538px
-        height: 100%
     @media (max-width: 960px), (max-device-width: 960px)
         width: $mobile_body_width
+        min-height: 1050px
     position: relative
     margin: 0 auto
     padding: 0 10px
     font-family: ClarendonFSLight, Georgia, serif
     font-weight: 300
+
 
 
 h1.logo
