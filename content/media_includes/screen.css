@@ -4,9 +4,9 @@ html { margin: 0; padding: 0; height: 100%; width: 100%; }
 /* line 23, ../sass/screen.sass */
 body { position: relative; margin: 0 auto; padding: 0 10px; font-family: ClarendonFSLight, Georgia, serif; font-weight: 300; }
 @media (min-device-width: 961px) { /* line 23, ../sass/screen.sass */
-  body { background: url("images/granola-bg.jpg") top center no-repeat; -moz-background-size: cover; -webkit-background-size: cover; -o-background-size: cover; background-size: cover; height: 100%; } }
+  body { background: url("images/granola-bg.jpg") top center; -moz-background-size: cover; -webkit-background-size: cover; -o-background-size: cover; background-size: cover; height: 100%; } }
 @media (max-width: 960px), (max-device-width: 960px) { /* line 23, ../sass/screen.sass */
-  body { background: url("images/granola-bg_small.jpg") top center no-repeat; -moz-background-size: auto 1280px; -webkit-background-size: auto 1280px; -o-background-size: auto 1280px; background-size: auto 1280px; } }
+  body { background: url("images/granola-bg_small.jpg") top center; -moz-background-size: auto 1280px; -webkit-background-size: auto 1280px; -o-background-size: auto 1280px; background-size: auto 1280px; } }
 @media (min-width: 961px) { /* line 23, ../sass/screen.sass */
   body { max-width: 960px; min-height: 538px; } }
 @media (max-width: 960px), (max-device-width: 960px) { /* line 23, ../sass/screen.sass */
@@ -25,7 +25,7 @@ h1.logo { color: transparent; background: url("images/gatherersgranola-logo.png"
 .footer a:hover { text-decoration: underline; }
 
 /* line 70, ../sass/screen.sass */
-.banner { width: 226px; height: 505px; display: inline-block; vertical-align: top; top: 0; color: transparent; }
+.banner { width: 226px; height: 505px; display: inline-block; vertical-align: top; top: 12px; color: transparent; }
 @media (min-width: 961px) { /* line 70, ../sass/screen.sass */
   .banner { position: absolute; } }
 @media (max-width: 960px) { /* line 70, ../sass/screen.sass */
@@ -41,7 +41,7 @@ h1.logo, .banner { user-select: none; -moz-user-select: none; -webkit-user-selec
 @media (min-width: 961px) { /* line 93, ../sass/screen.sass */
   #chipmunks-choice { left: 510px; } }
 @media (max-width: 960px) { /* line 93, ../sass/screen.sass */
-  #chipmunks-choice { margin-left: 14px; } }
+  #chipmunks-choice { margin-left: 24px; } }
 
 /* line 100, ../sass/screen.sass */
 #squirrel-bait { background: url("images/sb-banner.png") no-repeat; }
