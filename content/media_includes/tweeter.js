@@ -1,5 +1,6 @@
 (function() {
-  var loadTweets, pickTweet, renderTweet, settings;
+  var ONE_WEEK, loadTweets, pickTweet, renderTweet, settings;
+  ONE_WEEK = 1000 * 60 * 60 * 24 * 7;
   settings = {
     screen_name: 'gathergranola',
     count: 20,
@@ -18,11 +19,12 @@
     return $.get(url, data, pickTweet, "jsonp");
   };
   pickTweet = function(tweet_list) {
-    var selected_tweet, tweet, _i, _len;
+    var a_week_old, selected_tweet, tweet, _i, _len;
     selected_tweet = null;
     for (_i = 0, _len = tweet_list.length; _i < _len; _i++) {
       tweet = tweet_list[_i];
-      if (tweet.text.match(settings.hashtag)) {
+      a_week_old = (new Date() - new Date(tweet.created_at)) > ONE_WEEK;
+      if (tweet.text.match(settings.hashtag) && !a_week_old) {
         selected_tweet = tweet;
         break;
       }
