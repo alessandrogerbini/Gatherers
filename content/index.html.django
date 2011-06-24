@@ -44,7 +44,10 @@
     <style type="text/css">
         {% include "media_includes/screen.css" %}
     </style>
-    <!--[if IE]><style type="text/css">body{background-image:url(/images/granola-bg.jpg);}h1,.banner{font-size:0px;}</style><![endif]-->
+    <!--[if IE]><style type="text/css">
+        body{background-image:url(/images/granola-bg.jpg);}
+        h1,.banner{font-size:0px;}
+    </style><![endif]-->
 </head>
 <body>
 
@@ -93,10 +96,12 @@
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
     <script type="text/javascript">
         if(!window.jQuery){var s=document.createElement('script');s.type='text/javascript';s.src='js/jquery-1.6.1-min.js';document.getElementsByTagName('head')[0].appendChild(s);}
+
         {% include "js/store_locations.js" %}
         {% include "media_includes/tweeter.js" %}
         {% include "media_includes/where-to-buy.js" %}
-        document.onready=function(){tweetInit();storeInit();}
+
+        tweetInit();storeInit();
     </script>
 
 </body>
