@@ -1,14 +1,39 @@
 (function() {
-  var deltaToStoreLink, findDeltas, getUserLocation, renderStore, store_locations;
+  var default_stores, deltaToStoreLink, findDeltas, getUserLocation, randomStores, renderStore, store_locations;
+  default_stores = [
+    {
+      name: "Pioneer Food Market",
+      address: "77 Congress Street, Troy, New York 12180",
+      website: "http://www.troyfoodcoop.com",
+      latitude: 42.728752,
+      longitude: -73.69043
+    }
+  ];
+  store_locations = window.store_locations || default_stores;
   getUserLocation = function() {
-    var _ref;
-    return (_ref = navigator.geolocation) != null ? _ref.getCurrentPosition(function(geopos) {
-      var user_loc;
-      user_loc = geopos != null ? geopos.coords : void 0;
-      if (((user_loc != null ? user_loc.latitude : void 0) != null) && ((user_loc != null ? user_loc.longitude : void 0) != null)) {
-        return findDeltas(user_loc);
-      }
-    }) : void 0;
+    if (navigator.geolocation != null) {
+      return navigator.geolocation.getCurrentPosition(function(geopos) {
+        var user_loc;
+        user_loc = geopos != null ? geopos.coords : void 0;
+        if (((user_loc != null ? user_loc.latitude : void 0) != null) && ((user_loc != null ? user_loc.longitude : void 0) != null)) {
+          return findDeltas(user_loc);
+        }
+      });
+    } else {
+      return randomStores();
+    }
+  };
+  randomStores = function() {
+    var i, index, selected_stores;
+    selected_stores = [];
+    for (i = 0; i <= 4; i++) {
+      index = Math.floor(Math.random() * store_locations.length);
+      selected_stores.push({
+        store: store_locations[index]
+      });
+      store_locations = store_locations.slice(0, index).concat(store_locations.slice(index + 1, store_locations.length));
+    }
+    return renderStore(selected_stores);
   };
   findDeltas = function(user_loc) {
     var acos, cos, delta, deltas, radius, s_lat, s_lng, sin, store, u_lat, u_lng, _i, _len;
@@ -35,7 +60,7 @@
     return renderStore(deltas);
   };
   deltaToStoreLink = function(delta) {
-    var map_link, name, query, store;
+    var link_text, map_link, name, query, store;
     store = delta.store;
     name = store.name;
     if (store.website) {
@@ -47,18 +72,28 @@
     } else {
       query = escape("" + store.latitude + ", " + store.longitude);
     }
-    if (delta.delta < 1) {
-      delta.delta = delta.delta.toFixed(1);
+    if (delta.delta != null) {
+      if (delta.delta < 1) {
+        delta.delta = delta.delta.toFixed(1);
+      } else {
+        delta.delta = delta.delta.toFixed(0);
+      }
+      link_text = "" + delta.delta + " mi";
     } else {
-      delta.delta = delta.delta.toFixed(0);
+      link_text = 'map';
     }
-    map_link = " (<a href='http://maps.google.com/?q=" + query + "'>" + delta.delta + " mi</a>)";
+    map_link = " (<a href='http://maps.google.com/?q=" + query + "'>" + link_text + "</a>)";
     return "" + name + map_link;
   };
   renderStore = function(deltas) {
-    var $ul, delta, max, store_list, template, _i, _len, _ref;
+    var $ul, delta, extra_text, max, store_list, template, _i, _len, _ref;
     if (deltas.length > 0) {
-      template = "Available at " + (deltaToStoreLink(deltas[0])) + ", and <span>other fine establishments</span>.";
+      if (deltas.length > 1) {
+        extra_text = ', and <span>other fine establishments</span>';
+      } else {
+        extra_text = '';
+      }
+      template = "Available at " + (deltaToStoreLink(deltas[0])) + extra_text + ".";
       store_list = "";
       max = 5;
       if (deltas.length < max) {
@@ -80,25 +115,4 @@
   window.storeInit = function() {
     return getUserLocation();
   };
-  store_locations = [
-    {
-      name: "Pioneer Food Market",
-      address: "77 Congress Street, Troy, New York 12180",
-      website: "http://www.troyfoodcoop.com",
-      latitude: 42.728752,
-      longitude: -73.69043
-    }, {
-      name: "y",
-      address: "y",
-      website: "y",
-      latitude: 20,
-      longitude: 3.69043
-    }, {
-      name: "x",
-      address: "x",
-      website: "x",
-      latitude: 52.728752,
-      longitude: -93.69043
-    }
-  ];
 }).call(this);

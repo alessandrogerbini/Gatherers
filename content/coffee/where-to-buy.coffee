@@ -1,14 +1,46 @@
-# list of stores and locations
-# navigator.geolocation
-# calc delta of user location to stores
-# 
+# These are included in case there is a problem with the main list
+# from /js/store_locations.js, e.g. a syntax error in the file.
+default_stores = [
+  {
+      name      : "Pioneer Food Market"
+      address   : "77 Congress Street, Troy, New York 12180"
+      website   : "http://www.troyfoodcoop.com"
+      latitude  : 42.728752
+      longitude : -73.69043
+  }
+]
 
+store_locations = window.store_locations or default_stores
+
+
+
+# If the browser supports geolocation, get the user's location for use in
+# selecting nearby stores.
 getUserLocation = ->
-    navigator.geolocation?.getCurrentPosition (geopos) ->
-        user_loc = geopos?.coords
-        if user_loc?.latitude? and user_loc?.longitude?
-            findDeltas(user_loc)
+    if navigator.geolocation?
+        navigator.geolocation.getCurrentPosition (geopos) ->
+            user_loc = geopos?.coords
+            if user_loc?.latitude? and user_loc?.longitude?
+                findDeltas(user_loc)
+    else
+        randomStores()
 
+
+
+# Select stores randomly from the list of possible stores.
+randomStores = ->
+    selected_stores = []
+    for i in [0..4]
+        index = Math.floor(Math.random()*store_locations.length)
+        selected_stores.push
+            store: store_locations[index]
+        store_locations = store_locations[0...index].concat(store_locations[index+1...store_locations.length])
+    renderStore(selected_stores)
+
+
+
+# Find the distances between the user's location and the store locations.
+# Then sort the list in ascending order by distance.
 findDeltas = (user_loc) ->
     deltas = []
     for store in store_locations
@@ -33,6 +65,8 @@ findDeltas = (user_loc) ->
 
     renderStore(deltas)
 
+
+
 deltaToStoreLink = (delta) ->
     store = delta.store
     name = store.name
@@ -44,16 +78,26 @@ deltaToStoreLink = (delta) ->
     else
         query = escape("#{ store.latitude }, #{ store.longitude }")
     
-    if delta.delta < 1
-        delta.delta = delta.delta.toFixed(1)
+    if delta.delta?
+        if delta.delta < 1
+            delta.delta = delta.delta.toFixed(1)
+        else
+            delta.delta = delta.delta.toFixed(0)
+        link_text = "#{ delta.delta } mi"
     else
-        delta.delta = delta.delta.toFixed(0)
-    map_link = " (<a href='http://maps.google.com/?q=#{ query }'>#{ delta.delta } mi</a>)"
+        link_text = 'map'
+    map_link = " (<a href='http://maps.google.com/?q=#{ query }'>#{ link_text }</a>)"
     return "#{ name }#{ map_link }"
+
+
 
 renderStore = (deltas) ->
     if deltas.length > 0
-        template = "Available at #{ deltaToStoreLink(deltas[0]) }, and <span>other fine establishments</span>."
+        if deltas.length > 1
+            extra_text = ', and <span>other fine establishments</span>'
+        else
+            extra_text = ''
+        template = "Available at #{ deltaToStoreLink(deltas[0]) }#{ extra_text }."
         store_list = ""
         max = 5
         if deltas.length < max
@@ -66,30 +110,6 @@ renderStore = (deltas) ->
         $('div#store p span').click ->
             $ul.slideToggle(200)
 
-window.storeInit = ->
-    getUserLocation()
 
 
-store_locations = [
-  {
-      name      : "Pioneer Food Market"
-      address   : "77 Congress Street, Troy, New York 12180"
-      website   : "http://www.troyfoodcoop.com"
-      latitude  : 42.728752
-      longitude : -73.69043
-  }
-  {
-      name: "y"
-      address: "y"
-      website: "y"
-      latitude: 20
-      longitude: 3.69043
-  }
-  {
-      name: "x"
-      address: "x"
-      website: "x"
-      latitude: 52.728752
-      longitude: -93.69043
-  }
-]
+window.storeInit = -> getUserLocation()
