@@ -17,13 +17,11 @@ store_locations = window.store_locations or default_stores
 # If the browser supports geolocation, get the user's location for use in
 # selecting nearby stores.
 getUserLocation = ->
-    if navigator.geolocation?
-        navigator.geolocation.getCurrentPosition (geopos) ->
-            user_loc = geopos?.coords
-            if user_loc?.latitude? and user_loc?.longitude?
-                findDeltas(user_loc)
-    else
-        randomStores()
+    navigator.geolocation.getCurrentPosition (geopos) ->
+        user_loc = geopos?.coords
+        if user_loc?.latitude? and user_loc.longitude?
+            findDeltas(user_loc)
+
 
 
 
@@ -53,7 +51,7 @@ findDeltas = (user_loc) ->
         acos = Math.acos
         cos = Math.cos
         sin = Math.sin
-        
+
         radius = 3959 # miles
         delta = acos(cos(u_lat)*cos(u_lng)*cos(s_lat)*cos(s_lng) + cos(u_lat)*sin(u_lng)*cos(s_lat)*sin(s_lng) + sin(u_lat)*sin(s_lat)) * radius
 
@@ -112,4 +110,9 @@ renderStore = (deltas) ->
 
 
 
-window.storeInit = -> getUserLocation()
+window.storeInit = ->
+    if navigator.geolocation?
+        $('div#store p').html('<span>Find stores near you</span>.')
+        $('div#store p span').click(getUserLocation)
+    else
+        randomStores()
