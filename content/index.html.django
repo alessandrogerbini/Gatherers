@@ -9,10 +9,8 @@
 
     <link rel="icon" href="favicon.png" type="image/png"/>
 
-    {% comment %}
     <script type="application/javascript" async=true src="http://www.google-analytics.com/ga.js"></script>
-    <script type="text/javascript">var _gaq = _gaq || []; _gaq.push(['_setAccount', 'XXXXXXXXXXX']); _gaq.push(['_addOrganic','google','prev']); _gaq.push(['_trackPageview']);</script>
-    {% endcomment %}
+    <script type="text/javascript">var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-11028399-8']); _gaq.push(['_addOrganic','google','prev']); _gaq.push(['_trackPageview']);</script>
 
     <style type="text/css">
         /*
